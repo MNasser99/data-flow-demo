@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Flow</title>
+    <style>
+        *{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #h1-title{
+            text-align: center;
+        }
+
+        .form{
+            width: fit-content;
+            background-color: rgb(170, 205, 205);
+            border-radius: 15px;
+            padding: 40px;
+            margin: auto;
+        }
+
+        #table-title{
+            text-align: center;
+        }
+
+        #table-div{
+            width: fit-content;
+            margin: auto;
+        }
+
+        #csv_table{
+            border-collapse: collapse;
+            border-radius: 15px;
+        }
+
+        #csv_table th{
+            background-color: rgb(134, 189, 134);
+            padding: 10px 20px;
+            border: 2px solid rgb(226, 228, 226);
+            color: rgb(255, 255, 255);
+        }
+
+        #csv_table tr{
+            background-color: rgb(213, 219, 213);
+
+        }
+
+        #csv_table td{
+            padding: 10px 20px;
+            border: 2px solid rgb(226, 228, 226);
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1-title">Data Flow Demo</h1>
+    <div class="form">
+        <form method="post" action="/" enctype="multipart/form-data" th:object="${dataRequest}">
+            <h3>Data Flow Form</h3>
+
+            <label for="file1">File 1:</label>
+            <input type="file" id="file1" name="files" accept=".csv" required> <br><br>
+
+            <label for="file2">File 2:</label>
+            <input type="file" id="file2" name="files" accept=".csv" required> <br><br>
+
+            <label for="collation">Collation:</label>
+            <select name="collation" id="collation">
+                <option value="full">Full</option>
+                <option value="normal">Normal</option>
+            </select> <br><br>
+
+            <label for="processLines">Process Lines:</label>
+            <input type="number" id="processLines" name="processLines" min="5" max="100" required> <br><br>
+
+            <label for="toDownload">Download:</label>
+            <input type="checkbox" id="toDownload" name="toDownload"> <br><br>
+
+            <input type="submit" name="register" value="Register">
+        </form>
+    </div>
+
+    <br><br><br><br><br>
+    <br>
+
+    <h2 id="table-title">Output View</h2>
+    <div id="table-div">
+        <table id="csv_table">
+            <tr><th>Number</th><th>Column 1</th> <th>Column 2</th></tr>
+            <tr th:each="file : ${files}">
+                <th th:text="${file.numb}"></th>
+                <td th:text="${file.column1}"></td>
+                <td th:text="${file.column2}"></td>
+            </tr>
+        </table>
+    </div>
+
+    
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+version: "3.0"
+services:
+  demo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: data-flow-demo
+    ports:
+    - 8080:8080
