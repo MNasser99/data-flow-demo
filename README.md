@@ -15,10 +15,17 @@ git clone https://github.com/MNasser99/data-flow-demo.git
 
 Step 1: Run Docker Compose inside the project directory to build and run the project image.
 ```bash
-docker-compose up -d
+docker-compose up
 ```
 
 Step 2: Once the project is built, go to localhost port [8080](http://localhost:8080/) to view and use the web app.
+
+## Installation through Docker Hub
+This project is also published on Docker Hub as a Docker Image with the name ``` mohhafez/data-flow-demo```. You can install and run it using the following command:
+
+```
+docker run -p 8080:8080 mohhafez/data-flow-demo:latest
+```
 
 ## Functionality
 User will be met with a form asking for the following information:
@@ -29,4 +36,4 @@ User will be met with a form asking for the following information:
 - Collation: Has two options:
   - Full: Will produce a csv file with exactly n rows. If one of the input files don't have enough rows, its last rows will be left blank.
   - Normal: Will produce a csv with n rows as long as both files have rows equal to or more than n. Otherwise, it will produce as many rows as the smaller of the two files.
-- Download Checkbox: Determines whether the result will be viewed online or downloaded as a csv.
+- Download Checkbox: Determines whether the result will be printed on the website or downloaded as a csv.
