@@ -1,6 +1,6 @@
 # CSV Data Flow Web Application.
 
-This project is a data flow demo developed by Mohamed Abdelhafez for an assessment from Mamun.
+This project is a data flow demo developed by me for an assessment from Mamun.
 The web app takes two csv files, processes them and returns a resulting third csv file. You can either download the result or view it online.
 
 ## Installation
